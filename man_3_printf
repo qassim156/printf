@@ -1,0 +1,131 @@
+.TH _printf 3 "September 2023" "Farida Alsamaa and Yeabsira Moges "
+.SH NAME
+_printf - formatted output conversion
+
+.SH SYNOPSIS
+.B #include "main.h"
+.P
+.B int _printf(const char *format, ...)
+
+.SH DESCRIPTION
+The \fB_printf()\fP function writes to stdout the arguments that make up the argument list as specified by the string pointed to by \fIformat\fP. The \fB_printf()\fP function returns the number of characters actually printed. A negative value is returned if it fails to print.
+
+.SH FORMAT SPECIFIERS
+The \fIformat\fP argument is a string that may contain format specifiers, each beginning with a '%' character, followed by a specifier character.
+
+.TP
+.B %s
+Prints a string to the stdout. If no string is passed, it prints "null" instead of the string.
+
+.TP
+.B %d
+Prints an integer in base 10.
+
+.TP
+.B %c
+Prints a character passed by the user.
+
+.TP
+.B %%
+Prints the '%' sign to the stdout.
+
+.TP
+.B %r
+Prints a reverse of a string to the stdout.
+
+.TP
+.B %R
+Prints a string in Rot 13 version.
+
+.TP
+.B %b
+Prints the binary representation of a number.
+
+.TP
+.B %x
+Prints the hexadecimal representation of a number in lower case.
+
+.TP
+.B %X
+Prints the hexadecimal representation of a number in upper case.
+
+.TP
+.B %u
+Prints an unsigned integer to the stdout.
+
+.TP
+.B %p
+Prints the memory location of a variable.
+
+.TP
+.B %S
+Prints a string after converting non-printable characters to their ASCII value.
+
+.SH ARGUMENTS
+\fB_printf\fP takes one mandatory argument and other optional variadic arguments. This function requires a mandatory argument consisting of a format specifier telling what \fB_printf\fP to extract from the argument list.
+
+.SH EXAMPLES
+.B #include "main.h"
+.P
+.B int main(void)
+.P
+.B {
+.br
+.B char str[] = "Name";
+.br
+.B int num = 12;
+.br
+.B const char *format = "Hello %s you are %d years old.";
+.br
+.B _printf(format, str, num);
+.br
+.B return (0);
+.br
+.B }
+
+This code will result in the following output:
+
+.B Hello Name you are 12 years old.
+
+.B #include "main.h"
+.P
+.B int main(void)
+.P
+.B {
+.br
+.B char *str;
+.br
+.B char *str1;
+.br
+.B str = "Rotate string";
+.br
+.B str1 = "Reverse";
+.br
+.B _printf("ROT 13 of %s == %R\n", str, str);
+.br
+.B _printf("Reverse of %s == %r", str1, str1);
+.br
+.B }
+
+The output will be:
+
+.B ROT 13 of Rotate string == Ebgngr fgevat
+.br
+.B Reverse of Reverse == esreveR
+
+.SH SEE ALSO
+.B man(1), printf(3)
+
+.SH AUTHOR
+The \fB_printf\fP function was written by Farida Alshaama and Yeabsira Moges.
+
+.SH REPORTING BUGS
+You can report bugs for maintenance to the following email addresses:
+.br
+.B Yeabsira Moges - yabume123@gmail.com
+.br
+.B Farida Alshaama - faridaalshamaa@gmail.com
+
+.SH DISCLAIMER
+This is a simplified man page for the \fB_printf\fP command and may not cover all options or behaviors. Refer to the official documentation of \fBprintf\fP for more details.
+
